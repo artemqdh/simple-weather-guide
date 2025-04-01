@@ -1,6 +1,6 @@
 import { Weather } from '../models/weather'
 
 export interface IWeatherService {
-    GetWeatherFromAPI(): Weather;
+    GetWeatherFromAPI(): Promise<Weather>;
     RenderTodayWeather(): void;
 }
