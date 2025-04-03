@@ -1,8 +1,9 @@
 import React from 'react';
+import PrintHourlyContainer from './UI/hourlyPrint';
 
 function App() {
   return (
-    <p className='text-center'>data</p>
+    <PrintHourlyContainer/>
   );
 }
 
