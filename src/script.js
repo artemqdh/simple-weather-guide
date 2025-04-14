@@ -5,7 +5,7 @@ let Render = () =>
     currentLocation.set("currentLongitude", 36.36);
 
     // DONT DO IT, PLEASE!!! USE .ENV FILE!!!!!!!!!!
-    const apiKey = "";
+    const apiKey = `${process.env.WEATHER_API_KEY}`;
 
     if(!apiKey)
     {
