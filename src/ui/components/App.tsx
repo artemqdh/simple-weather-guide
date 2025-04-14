@@ -3,10 +3,12 @@ import { WeatherService } from '..//..//infrastruction/services/weather-service'
 import { CurrentWeather } from './CurrentWeather';
 import PrintHourlyContainer from './HourlyPrint';
 import { Weather, HourlyForecast } from '..//..//domain/models/weather';
+import NavigationBar from "./NavigationBar";
 
 export const App: React.FunctionComponent = () => {
   const [currentWeather, setCurrentWeather] = useState<Weather | null>(null);
   const [hourlyForecast, setHourlyForecast] = useState<HourlyForecast[]>([]);
+  const [page, setPage] = useState<'today' | 'forecast'>('today');
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -38,8 +40,21 @@ export const App: React.FunctionComponent = () => {
 
   return (
     <>
-      <CurrentWeather weather={currentWeather} />
-      <PrintHourlyContainer hourlyData={hourlyForecast} />
+      <NavigationBar onChangePage={setPage} />
+      
+      {page === 'today' && (
+        <>
+          <CurrentWeather weather={currentWeather} />
+          <PrintHourlyContainer hourlyData={hourlyForecast} />
+        </>
+      )}
+
+      {page === 'forecast' && (
+        <>
+          Hello test
+        </>
+      )}
+      
     </>
   );
 };
